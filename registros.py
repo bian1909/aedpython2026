@@ -137,5 +137,20 @@ class tipo_membre:
     descuen: int = 0  # porcentaje de descuento
     estado: int = 1  # 1=activo, 0=inactivo
 
+#subreg asistencia
+@dataclass
+class Fecha_asistencia:
+    año: int
+    mes: int
+    dia: int
 
+#reg control de asistencia
+@dataclass
+class control_asis:
+    num_asis: int
+    socio_docu: int
+    Fecha: Fecha_asistencia
+    hora_ing: str
+    hora_egre: str = None
+    tipo: Literal["gimnasio", "actividad", "libre"] = "gimnasio"
 

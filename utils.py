@@ -9,7 +9,8 @@ from registros import (
     Fecha_venc, Fecha_pag, control_cuot,
     horario, actividad,
     Fecha_inscrip, inscripcion,
-    fecha_ini, fecha_fin, membre_socio, tipo_membre
+    fecha_ini, fecha_fin, membre_socio, tipo_membre,
+    Fecha_asistencia, control_asis
 )
 
 carpetadatos = "datos" # nombre de carpeta para los .txt
@@ -20,7 +21,8 @@ encabezados = {
     "cuotas.txt": "num_cuot;socio_docu;fecha_venc;monto;estado;fecha_pag",
     "actividades.txt": "cod_activ;nomb;descrip;hora_ini;hora_fin;dia_semana;cupo_actu;estado",
     "inscripciones.txt": "numb_inscrip;socio_docu;cod_activ;fecha_inscrip;estado",
-    "membresias.txt": "cod_tip;descrip;dura_dias;monto;descuen;estado"
+    "membresias.txt": "cod_tip;descrip;dura_dias;monto;descuen;estado",
+    "asistencia.txt" : "num_asis;socio_docu;fecha;hora_ing;hora_egre;tipo",
 }
 
 
@@ -220,6 +222,29 @@ def linea_a_membresia(linea):
     except:
         return None
 
+def asistencia_a_linea(asis):
+    fecha = f"{asis.Fecha.año}-{asis.Fecha.mes:02d}-{asis.Fecha.dia:02d}"
+    egre = asis.hora_egre if asis.hora_egre else ""
+    return f"{asis.num_asis};{asis.socio_docu};{fecha};{asis.hora_ing};{egre};{asis.tipo}"
+
+def linea_a_asistencia(linea):
+    try:
+        campos = linea.strip().split(';')
+        if len(campos) != 6:
+            return None
+        año, mes, dia = map(int, campos[2].split('-'))
+        fecha = Fecha_asistencia(año, mes, dia)
+        return control_asis(
+            num_asis=int(campos[0]),
+            socio_docu=int(campos[1]),
+            Fecha=fecha,
+            hora_ing=campos[3],
+            hora_egre=campos[4] if campos[4] else None,
+            tipo=campos[5]
+        )
+    except:
+        return None
+    
 # MANEJO DE ARCHIVOS
 #es "crear" lo que usamos nosotros en la catedra con archivos
 
