@@ -31,10 +31,10 @@ no se requieren librerías externas
 
 ### descarga:
 **desde el cmd**, copiar y pegar:
-cd Documentos (o la carpeta de preferencia)
-git clone https://github.com/bian1909/aedpython2026.git
-cd aedpython2026
-python main.py
+- cd Documentos (o la carpeta de preferencia)
+- git clone https://github.com/bian1909/aedpython2026.git
+- cd aedpython2026
+- python main.py
 
 esa ultima instruccion es para ejecutar el archivo principal que vincula a todos los demas, pero si eso falla, ejecutar desde terminal/cmd de la siguiente manera:
 
