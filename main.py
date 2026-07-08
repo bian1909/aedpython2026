@@ -8,7 +8,7 @@ from actyasist import menu_actividades, menu_inscripciones, menu_asistencia
 def menu_principal():
     inicializar_sistema() # crea la carpeta y archivos txt si no existen
     while True:
-        mostrar_titulo("gimnasio chacarita")
+        mostrar_titulo("bienvenido, elija una opción")
         print("  1. gestion de socios")
         print("  2. gestion de membresias")
         print("  3. control de cuotas")
