@@ -32,7 +32,7 @@ def pausar():
 
 def mostrar_titulo(titulo):
     # muestra un título formateado en mayusculas
-    print(f"  {titulo.upper()}")
+    print(f"  {titulo}")
 
 # VALIDACIONES
 
@@ -64,7 +64,7 @@ def validar_fecha_input(fechaa):
                 return año, mes, dia #si todo está en orden, sale del bucle
             print("fecha invalida.") #si alguna condición falló, vuelve a pedir
         except ValueError:
-            print("Use formato (dia, mes, año)")
+            print("Use formato (dia/ mes/ año)")
 
 def validar_entero(valor, minimo=None, maximo=None):
     #Valida entero en rango. Retorna int o None, nos sirve para diversos campos ejm edad
@@ -325,7 +325,6 @@ def obtener_hora_actual():
 def inicializar_sistema():
     #inicializa el sistema creando carpeta y archivos
     print("  SISTEMA DE GESTION DE GIMNASIO")
-    print("\nInicializando sistema...")
     
     if not os.path.exists(carpetadatos):
         os.makedirs(carpetadatos)
@@ -339,10 +338,7 @@ def inicializar_sistema():
     
     if archivos_creados > 0:
         print(f"{archivos_creados} archivo(s) creado(s)")
-    else:
-        print(" Todos los archivos ya existen")
     
-    print("\nSistema inicializado correctamente.\n")
     return True
 
 def corte_de_control(registros, campo_agrupacion):
