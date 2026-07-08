@@ -30,7 +30,7 @@ git
 no se requieren librerías externas 
 
 ### descarga:
-**desde el cmd**, copiar y pegar:
+##### **desde el cmd**, copiar y pegar: 
 - cd Documentos (o la carpeta de preferencia)
 - git clone https://github.com/bian1909/aedpython2026.git
 - cd aedpython2026
